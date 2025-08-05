@@ -1,6 +1,6 @@
 ## Here's a step-by-step guide to manually deploy IBM ACE 13.x Integration Server on Google Kubernetes Engine (GKE), including deploying a BAR file via REST API.
 ## Installing cert-manager in your Kubernetes cluster
-run this commands:
+Run this commands:
 ```
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.17.2/cert-manager.yaml
 ```
