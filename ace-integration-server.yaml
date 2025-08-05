@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ace-integration-server
+  namespace: ace
+  labels:
+    app: ace-integration-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ace-integration-server
+  template:
+    metadata:
+      labels:
+        app: ace-integration-server
+    spec:
+      imagePullSecrets:
+      - name: ibm-entitlement-key
+      containers:
+      - name: ace-runtime
+        image: cp.icr.io/cp/appc/ace:13.0.0.0-r1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 7600
+        env:
+        - name: LICENSE
+          value: "accept"
+        - name: ACE_SERVER_NAME
+          value: ace-server
+        - name: ACE_BROKER_PORT
+          value: "7600"
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1"
+        volumeMounts:
+        - mountPath: /home/aceuser/ace-server-config
+          name: config-volume
+      volumes:
+      - name: config-volume
+        emptyDir: {}

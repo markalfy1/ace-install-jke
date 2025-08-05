@@ -5,6 +5,10 @@ This repository contains the instructions and Kubernetes manifests to deploy **I
 ---
 
 ## Prerequisites
+- Clone this repo then
+```bash
+cd cd ace-install-jke 
+```
 
 - A Google Cloud GKE cluster up and running
 - `kubectl` configured to connect to your GKE cluster

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ace-integration-server-service
+  namespace: ace
+spec:
+  selector:
+    app: ace-integration-server
+  ports:
+  - protocol: TCP
+    port: 7600
+    targetPort: 7600
+  type: LoadBalancer
