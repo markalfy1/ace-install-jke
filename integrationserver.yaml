@@ -1,0 +1,15 @@
+apiVersion: appconnect.ibm.com/v1beta1
+kind: IntegrationServer
+metadata:
+  name: ace-standalone
+  namespace: ace-ns
+spec:
+  license:
+    accept: true
+    use: AppConnectEnterpriseProduction
+  version: "13.0"
+  replicas: 1
+  adminServerSecure: false
+  enableMetrics: true
+  storage:
+    type: ephemeral

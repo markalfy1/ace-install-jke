@@ -1,0 +1,35 @@
+license:
+  accept: true
+  use: AppConnectEnterpriseProduction
+
+operator:
+  enabled: true
+  installMode: AllNamespaces
+  namespace: ace-ns
+
+integrationServers:
+  ace-standalone:
+    replicas: 1
+    version: "13.0"
+    adminServerSecure: false
+    enableMetrics: true
+    storage:
+      type: ephemeral
+
+aceDashboard:
+  enabled: true
+  replicas: 1
+  version: "13.0"
+  storage:
+    type: file
+  authentication:
+    integrationKeycloak:
+      enabled: false
+  authorization:
+    integrationKeycloak:
+      enabled: false
+  displayMode: IntegrationRuntimes
+
+service:
+  type: LoadBalancer
+  port: 7600

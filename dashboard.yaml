@@ -1,0 +1,26 @@
+apiVersion: appconnect.ibm.com/v1beta1
+kind: Dashboard
+metadata:
+  name: ace-dashboard
+  namespace: ace-ns
+spec:
+  license:
+    accept: true
+    use: AppConnectEnterpriseProduction
+  version: "13.0"
+  replicas: 1
+  storage:
+    type: file
+  authentication:
+    integrationKeycloak:
+      enabled: false
+  authorization:
+    integrationKeycloak:
+      enabled: false
+  displayMode: IntegrationRuntimes
+  spec:
+    routes:
+      ui:
+        disabled: false
+      api:
+        disabled: false
